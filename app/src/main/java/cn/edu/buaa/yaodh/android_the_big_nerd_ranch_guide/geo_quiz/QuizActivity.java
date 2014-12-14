@@ -2,8 +2,6 @@ package cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.geo_quiz;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +12,7 @@ import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.R;
 public class QuizActivity extends ActionBarActivity {
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mPrevButton;
     private Button mNextButton;
     private TextView mQuestTextView;
 
@@ -36,7 +35,7 @@ public class QuizActivity extends ActionBarActivity {
         mQuestTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentIndex = (mCurrentIndex+1) % mQuestionBank.length;
+                mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
                 updateQuestion();
             }
         });
@@ -57,11 +56,20 @@ public class QuizActivity extends ActionBarActivity {
             }
         });
 
+        mPrevButton = (Button) findViewById(R.id.btn_prev);
+        mPrevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCurrentIndex = (mCurrentIndex + mQuestionBank.length - 1) % mQuestionBank.length;
+                updateQuestion();
+            }
+        });
+
         mNextButton = (Button) findViewById(R.id.btn_next);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentIndex = (mCurrentIndex+1) % mQuestionBank.length;
+                mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
                 updateQuestion();
             }
         });
@@ -77,7 +85,7 @@ public class QuizActivity extends ActionBarActivity {
 
         int messageResId = 0;
 
-        if(userPressedTrue == answerIsTrue) {
+        if (userPressedTrue == answerIsTrue) {
             messageResId = R.string.correct_toast;
         } else {
             messageResId = R.string.incorrect_toast;
