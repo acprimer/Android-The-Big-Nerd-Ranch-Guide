@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Android-The-Big-Nerd-Ranch-Guide</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">The Big Nerd Ranch Guide</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="chapter">
+        <item>GeoQuiz</item>
+    </string-array>
+
+    <string name="title_activity_quiz">Quiz</string>
+    <string name="question_text">question text</string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
 
 </resources>
