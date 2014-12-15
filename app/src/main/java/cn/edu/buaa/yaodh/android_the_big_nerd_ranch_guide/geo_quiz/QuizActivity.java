@@ -14,6 +14,7 @@ import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.R;
 public class QuizActivity extends ActionBarActivity {
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private static final String KEY_CHEATERS = "cheaters";
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -22,6 +23,7 @@ public class QuizActivity extends ActionBarActivity {
     private Button mCheatButton;
     private TextView mQuestTextView;
 
+
     private TrueFalse[] mQuestionBank = new TrueFalse[]{
             new TrueFalse(R.string.question_oceans, true),
             new TrueFalse(R.string.question_mideast, false),
@@ -29,6 +31,7 @@ public class QuizActivity extends ActionBarActivity {
             new TrueFalse(R.string.question_americas, true),
             new TrueFalse(R.string.question_asia, true),
     };
+    private boolean[] mCheaters = new boolean[mQuestionBank.length];
     private int mCurrentIndex = 0;
 
     @Override
@@ -40,6 +43,7 @@ public class QuizActivity extends ActionBarActivity {
         mQuestTextView = (TextView) findViewById(R.id.quest_text_view);
         if (savedInstanceState != null) {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+            mCheaters = savedInstanceState.getBooleanArray(KEY_CHEATERS);
         }
         updateQuestion();
         mQuestTextView.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +95,7 @@ public class QuizActivity extends ActionBarActivity {
                 Intent intent = new Intent(QuizActivity.this, CheatActivity.class);
                 boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
                 intent.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, answerIsTrue);
-                startActivity(intent);
+                startActivityForResult(intent, 0);
             }
         });
     }
@@ -101,6 +105,7 @@ public class QuizActivity extends ActionBarActivity {
         super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState");
         outState.putInt(KEY_INDEX, mCurrentIndex);
+        outState.putBooleanArray(KEY_CHEATERS, mCheaters);
     }
 
     private void updateQuestion() {
@@ -113,12 +118,23 @@ public class QuizActivity extends ActionBarActivity {
 
         int messageResId = 0;
 
-        if (userPressedTrue == answerIsTrue) {
+        if (mCheaters[mCurrentIndex]) {
+            messageResId = R.string.judgment_toast;
+        } else if (userPressedTrue == answerIsTrue) {
             messageResId = R.string.correct_toast;
         } else {
             messageResId = R.string.incorrect_toast;
         }
         Toast.makeText(QuizActivity.this, messageResId, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {
+            return;
+        }
+        mCheaters[mCurrentIndex] = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_SHOWN, false);
+        Log.d(TAG, "cheater: " + mCheaters[mCurrentIndex]);
     }
 
     @Override
