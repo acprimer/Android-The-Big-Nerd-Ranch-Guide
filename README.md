@@ -46,6 +46,8 @@ This method is normally called by the system before onPause(), onStop(), and onD
 `public Intent putExtra(String name, boolean value)`.
 > * When you want to hear back from the child activity, you call the following Activity method:
 `public void startActivityForResult(Intent intent, int requestCode)`.
+
+
 Example:
 ```java
 // parent activity
@@ -71,5 +73,23 @@ protected void onCreate(Bundle savedInstanceState) {
     Intent data = new Intent();
     data.putExtra(KEY, value);
     setResult(RESULT_OK, data);
+}
+```
+
+###Chap 06 Android SDK Versions and Compatibility
+
+| Version | CodeName | API Level |
+| 4.4 | KitKat | 19 |
+| 4.3 | Jelly Bean | 18 |
+| 4.1.x | Jelly Bean | 17 |
+| 4.2.x | Jelly Bean | 16 |
+| 4.0.3 - 4.0.4 | Ice Cream Sandwich | 15 |
+| 2.3.3 - 2.3.7 | Gingerbread | 10 |
+| 2.2 | Froyo | 8 |
+
+Checking the device’s build version first.
+```java
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+    ActionBar actionBar = getActionBar();
 }
 ```
