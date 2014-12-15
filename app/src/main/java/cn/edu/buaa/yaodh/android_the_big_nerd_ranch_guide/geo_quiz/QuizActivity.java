@@ -2,18 +2,22 @@ package cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.geo_quiz;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.R;
 
 public class QuizActivity extends ActionBarActivity {
+    private static final String TAG = "QuizActivity";
+
     private Button mTrueButton;
     private Button mFalseButton;
-    private Button mPrevButton;
-    private Button mNextButton;
+    private ImageButton mPrevButton;
+    private ImageButton mNextButton;
     private TextView mQuestTextView;
 
     private TrueFalse[] mQuestionBank = new TrueFalse[]{
@@ -28,6 +32,7 @@ public class QuizActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "OnCreate(Bundle) called");
         setContentView(R.layout.activity_quiz);
 
         mQuestTextView = (TextView) findViewById(R.id.quest_text_view);
@@ -56,7 +61,7 @@ public class QuizActivity extends ActionBarActivity {
             }
         });
 
-        mPrevButton = (Button) findViewById(R.id.btn_prev);
+        mPrevButton = (ImageButton) findViewById(R.id.btn_prev);
         mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +70,7 @@ public class QuizActivity extends ActionBarActivity {
             }
         });
 
-        mNextButton = (Button) findViewById(R.id.btn_next);
+        mNextButton = (ImageButton) findViewById(R.id.btn_next);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,5 +96,35 @@ public class QuizActivity extends ActionBarActivity {
             messageResId = R.string.incorrect_toast;
         }
         Toast.makeText(QuizActivity.this, messageResId, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "OnStart() called");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "OnPause() called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "OnResume() called");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "OnStop() called");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "OnDestroy() called");
     }
 }
