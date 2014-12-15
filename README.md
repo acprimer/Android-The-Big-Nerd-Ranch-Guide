@@ -5,6 +5,8 @@ Learning the book "Android Programming: The Big Nerd Ranch Guide"
 
 ##Project 01 -- GeoQuiz
 Screenshot:
+
+
 ![screenshot_1](https://github.com/acprimer/Android-The-Big-Nerd-Ranch-Guide/blob/master/pic/quiz_screenshot_1.png)
 ![screenshot_2](https://github.com/acprimer/Android-The-Big-Nerd-Ranch-Guide/blob/master/pic/quiz_screenshot_2.png)
 
