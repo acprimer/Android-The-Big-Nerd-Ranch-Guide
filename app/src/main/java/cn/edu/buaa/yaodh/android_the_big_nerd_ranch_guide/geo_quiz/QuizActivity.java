@@ -1,5 +1,6 @@
 package cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.geo_quiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ public class QuizActivity extends ActionBarActivity {
     private Button mFalseButton;
     private Button mPrevButton;
     private Button mNextButton;
+    private Button mCheatButton;
     private TextView mQuestTextView;
 
     private TrueFalse[] mQuestionBank = new TrueFalse[]{
@@ -79,6 +81,17 @@ public class QuizActivity extends ActionBarActivity {
             public void onClick(View v) {
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
                 updateQuestion();
+            }
+        });
+
+        mCheatButton = (Button) findViewById(R.id.btn_cheat);
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuizActivity.this, CheatActivity.class);
+                boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
+                intent.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, answerIsTrue);
+                startActivity(intent);
             }
         });
     }
