@@ -27,9 +27,50 @@ Learning the book "Android Programming: The Big Nerd Ranch Guide"
 current state of an individual device. The characteristics that make up the configuration include screen orientation, screen
 density, screen size, keyboard type, dock mode, language, and more.
 > * Note that Android destroys the current activity and creates a new one whenever any runtime configuration change occurs.
-> * You need a way to save this data across a runtime configuration change, like rotation.
+You need a way to save this data across a runtime configuration change, like rotation.
 One way to do this is to override the Activity method.
-```java
-protected void onSaveInstanceState(Bundle outState)
-```
+`protected void onSaveInstanceState(Bundle outState)`.
 This method is normally called by the system before onPause(), onStop(), and onDestroy().
+
+###Chap 04 Debugging Android Apps
+
+> * Android Lint is a static analyzer for Android code.
+ A static analyzer is a program that examines your code to find defects without running it.
+
+###Chap 05 Your Second Activity
+
+> * Declaring activities in the manifest.
+> * The simplest way one activity can start another is with the Activity method:
+`public void startActivity(Intent intent)`.
+> * To add an extra to an intent, you use Intent.putExtra(…). In particular, you will be calling
+`public Intent putExtra(String name, boolean value)`.
+> * When you want to hear back from the child activity, you call the following Activity method:
+`public void startActivityForResult(Intent intent, int requestCode)`.
+Example:
+```java
+// parent activity
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    Intent intent = new Intent(QuizActivity.this, CheatActivity.class);
+    intent.putExtra(KEY, value);
+    startActivityForResult(intent, 0);
+}
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (data == null) {
+        return;
+    }
+    boolean flag = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_SHOWN, false);
+    ...
+}
+```
+```java
+// child activity
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    Intent data = new Intent();
+    data.putExtra(KEY, value);
+    setResult(RESULT_OK, data);
+}
+```
