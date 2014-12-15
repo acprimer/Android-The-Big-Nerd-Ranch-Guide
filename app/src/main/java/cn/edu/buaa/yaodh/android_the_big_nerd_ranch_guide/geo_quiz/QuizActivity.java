@@ -5,7 +5,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,11 +12,12 @@ import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.R;
 
 public class QuizActivity extends ActionBarActivity {
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
 
     private Button mTrueButton;
     private Button mFalseButton;
-    private ImageButton mPrevButton;
-    private ImageButton mNextButton;
+    private Button mPrevButton;
+    private Button mNextButton;
     private TextView mQuestTextView;
 
     private TrueFalse[] mQuestionBank = new TrueFalse[]{
@@ -36,6 +36,9 @@ public class QuizActivity extends ActionBarActivity {
         setContentView(R.layout.activity_quiz);
 
         mQuestTextView = (TextView) findViewById(R.id.quest_text_view);
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
         updateQuestion();
         mQuestTextView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +64,7 @@ public class QuizActivity extends ActionBarActivity {
             }
         });
 
-        mPrevButton = (ImageButton) findViewById(R.id.btn_prev);
+        mPrevButton = (Button) findViewById(R.id.btn_prev);
         mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +73,7 @@ public class QuizActivity extends ActionBarActivity {
             }
         });
 
-        mNextButton = (ImageButton) findViewById(R.id.btn_next);
+        mNextButton = (Button) findViewById(R.id.btn_next);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +81,13 @@ public class QuizActivity extends ActionBarActivity {
                 updateQuestion();
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState");
+        outState.putInt(KEY_INDEX, mCurrentIndex);
     }
 
     private void updateQuestion() {
