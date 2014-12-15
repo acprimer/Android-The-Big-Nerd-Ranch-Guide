@@ -55,7 +55,6 @@ protected void onCreate(Bundle savedInstanceState) {
     intent.putExtra(KEY, value);
     startActivityForResult(intent, 0);
 }
-
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (data == null) {
