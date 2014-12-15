@@ -16,4 +16,4 @@ Learning the book "Android Programming: The Big Nerd Ranch Guide"
 > * `A model object` holds the application’s data and "business logic".
 > * `View objects` know how to draw themselves on the screen and how to respond to user input, like touches.
 > * `Controller objects` tie the view and model objects together.
-> * ![mvc](https://github.com/acprimer/Android-The-Big-Nerd-Ranch-Guide/blob/master/pic/mvc.png)
+> * MVC flow with user input![mvc](https://github.com/acprimer/Android-The-Big-Nerd-Ranch-Guide/blob/master/pic/mvc.png)
