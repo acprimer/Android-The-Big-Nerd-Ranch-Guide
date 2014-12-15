@@ -1,6 +1,7 @@
 package cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.geo_quiz;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -16,6 +17,7 @@ public class CheatActivity extends ActionBarActivity {
     private boolean mAnswerIsTrue;
     private TextView mAnswerTextView;
     private Button mShowAnswerButton;
+    private TextView mAPILevelTextView;
 
     private boolean mIsAnswerShown;
 
@@ -33,6 +35,9 @@ public class CheatActivity extends ActionBarActivity {
 
         mAnswerTextView = (TextView) findViewById(R.id.answer_text_view);
         showAnswer();
+
+        mAPILevelTextView = (TextView) findViewById(R.id.api_level_text_view);
+        mAPILevelTextView.setText("API Level " + Build.VERSION.SDK_INT);
 
         mShowAnswerButton = (Button) findViewById(R.id.show_answer_button);
         mShowAnswerButton.setOnClickListener(new View.OnClickListener() {
