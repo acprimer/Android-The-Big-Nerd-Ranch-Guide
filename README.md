@@ -20,9 +20,16 @@ Learning the book "Android Programming: The Big Nerd Ranch Guide"
 
 ###Chap 03 The Activity Lifecycle
 
-> * State: non-existent --> stopped(not visible) --> paused(visible) --> running(visible & foreground)
-> * call: onCreate() --> onStart() --> onResume() --> onPause() --> onStop() --> onDestroy()
+> * State: `non-existent` --> `stopped`(not visible) --> `paused`(visible) --> `running`(visible & foreground)
+> * calls: `onCreate()` --> `onStart()` --> `onResume()` --> `onPause()` --> `onStop()` --> `onDestroy()`
+> * Activity lifecycle.![lifecycle](http://developer.android.com/images/activity_lifecycle.png)
 > * Rotating the device changes the device configuration. The device configuration is a set of characteristics that describe the
 current state of an individual device. The characteristics that make up the configuration include screen orientation, screen
 density, screen size, keyboard type, dock mode, language, and more.
 > * Note that Android destroys the current activity and creates a new one whenever any runtime configuration change occurs.
+> * You need a way to save this data across a runtime configuration change, like rotation.
+One way to do this is to override the Activity method.
+```java
+protected void onSaveInstanceState(Bundle outState)
+```
+This method is normally called by the system before onPause(), onStop(), and onDestroy().
