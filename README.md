@@ -79,6 +79,7 @@ protected void onCreate(Bundle savedInstanceState) {
 ###Chap 06 Android SDK Versions and Compatibility
 
 | Version | CodeName | API Level |
+| ------|:--------|:---:|
 | 4.4 | KitKat | 19 |
 | 4.3 | Jelly Bean | 18 |
 | 4.1.x | Jelly Bean | 17 |
