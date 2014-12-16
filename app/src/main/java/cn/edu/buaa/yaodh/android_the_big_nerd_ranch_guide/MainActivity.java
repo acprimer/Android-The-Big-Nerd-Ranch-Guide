@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.criminal_intent.CrimeActivity;
 import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.geo_quiz.QuizActivity;
 
 
@@ -31,6 +32,10 @@ public class MainActivity extends ActionBarActivity {
                 switch ((int) id) {
                     case 0:
                         intent = new Intent(MainActivity.this, QuizActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        intent = new Intent(MainActivity.this, CrimeActivity.class);
                         startActivity(intent);
                         break;
                 }

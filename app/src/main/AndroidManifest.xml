@@ -24,6 +24,10 @@
             android:name=".geo_quiz.CheatActivity"
             android:label="@string/title_activity_cheat" >
         </activity>
+        <activity
+            android:name=".criminal_intent.CrimeActivity"
+            android:label="@string/title_activity_crime" >
+        </activity>
     </application>
 
 </manifest>
