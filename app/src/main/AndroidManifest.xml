@@ -28,6 +28,10 @@
             android:name=".criminal_intent.CrimeActivity"
             android:label="@string/title_activity_crime" >
         </activity>
+        <activity
+            android:name=".criminal_intent.CrimeListActivity"
+            android:label="@string/title_activity_crime_list" >
+        </activity>
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.criminal_intent.CrimeActivity;
+import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.criminal_intent.CrimeListActivity;
 import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.geo_quiz.QuizActivity;
 
 
@@ -35,7 +36,7 @@ public class MainActivity extends ActionBarActivity {
                         startActivity(intent);
                         break;
                     case 1:
-                        intent = new Intent(MainActivity.this, CrimeActivity.class);
+                        intent = new Intent(MainActivity.this, CrimeListActivity.class);
                         startActivity(intent);
                         break;
                 }
