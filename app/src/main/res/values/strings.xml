@@ -37,5 +37,6 @@
     <string name="crime_solved_label">Solved?</string>
     <string name="crime_title">Crimes</string>
     <string name="title_activity_crime_list">CrimeListActivity</string>
+    <string name="title_activity_crime_pager">CrimePagerActivity</string>
 
 </resources>

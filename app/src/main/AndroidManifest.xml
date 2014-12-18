@@ -32,6 +32,10 @@
             android:name=".criminal_intent.CrimeListActivity"
             android:label="@string/title_activity_crime_list" >
         </activity>
+        <activity
+            android:name=".criminal_intent.CrimePagerActivity"
+            android:label="@string/title_activity_crime_pager" >
+        </activity>
     </application>
 
 </manifest>
