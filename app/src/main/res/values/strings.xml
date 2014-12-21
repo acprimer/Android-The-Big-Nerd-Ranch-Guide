@@ -7,6 +7,7 @@
     <string-array name="chapter">
         <item>GeoQuiz</item>
         <item>CriminalIntent</item>
+        <item>HelloMoon</item>
     </string-array>
 
     <string name="title_activity_quiz">Quiz</string>
@@ -39,5 +40,9 @@
     <string name="title_activity_crime_list">CrimeListActivity</string>
     <string name="title_activity_crime_pager">CrimePagerActivity</string>
     <string name="date_picker_title">Date of Crime:</string>
+    <string name="title_activity_hello_moon">HelloMoonActivity</string>
+    <string name="hello_moon_play">Play</string>
+    <string name="hello_moon_stop">Stop</string>
+    <string name="hello_moon_description">Neil Armstrong stepping onto the moon</string>
 
 </resources>

@@ -36,6 +36,11 @@
             android:name=".criminal_intent.CrimePagerActivity"
             android:label="@string/title_activity_crime_pager" >
         </activity>
+        <activity
+            android:name=".hello_moon.HelloMoonActivity"
+            android:label="@string/title_activity_hello_moon"
+            android:theme="@style/Base.ThemeOverlay.AppCompat.Dark">
+        </activity>
     </application>
 
 </manifest>
