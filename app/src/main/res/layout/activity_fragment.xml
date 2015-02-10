@@ -1,8 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_container"
-    tools:context="cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.criminal_intent.CrimeActivity">
+    android:id="@+id/fragment_container">
 
 </FrameLayout>

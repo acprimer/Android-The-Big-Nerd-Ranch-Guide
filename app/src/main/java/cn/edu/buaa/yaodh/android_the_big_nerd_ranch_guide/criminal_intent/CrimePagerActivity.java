@@ -2,10 +2,10 @@ package cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.criminal_intent;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -15,7 +15,7 @@ import cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.R;
 /**
  * Created by yaodh on 2014/12/18.
  */
-public class CrimePagerActivity extends FragmentActivity {
+public class CrimePagerActivity extends ActionBarActivity {
     private ViewPager mViewPager;
     private ArrayList<Crime> mCrimes;
     @Override
@@ -40,30 +40,11 @@ public class CrimePagerActivity extends FragmentActivity {
             }
         });
 
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i2) {
-
-            }
-
-            @Override
-            public void onPageSelected(int i) {
-                Crime c = mCrimes.get(i);
-                if (c.getTitle() != null) {
-                    setTitle(c.getTitle());
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
-        });
-
         UUID crimeId = (UUID) getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
         for(int i=0;i<mCrimes.size();i++) {
             if(mCrimes.get(i).getId().equals(crimeId)) {
                 mViewPager.setCurrentItem(i);
+                setTitle(mCrimes.get(i).getTitle());
                 break;
             }
         }

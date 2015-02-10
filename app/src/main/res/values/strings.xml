@@ -24,6 +24,7 @@
     <string name="question_africa">The source of the Nile River is in Egygt.</string>
     <string name="question_americas">The amazon River is the longest river in the Americas.</string>
     <string name="question_asia">Lake Baikal is the world\'s oldest and deepest freshwater lake.</string>
+
     <string name="title_activity_cheat">Quiz</string>
     <string name="hello_world">Hello world!</string>
     <string name="warning_text">Are you sure you want to do this?</string>
@@ -44,5 +45,7 @@
     <string name="hello_moon_play">Play</string>
     <string name="hello_moon_stop">Stop</string>
     <string name="hello_moon_description">Neil Armstrong stepping onto the moon</string>
+    <string name="new_crime">New Crime</string>
+    <string name="delete_crime">Delete Crime</string>
 
 </resources>

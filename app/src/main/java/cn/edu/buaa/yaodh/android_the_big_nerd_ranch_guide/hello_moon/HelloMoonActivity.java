@@ -14,6 +14,7 @@ public class HelloMoonActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hello_moon);
+        getActionBar().show();
     }
 
 }

@@ -35,6 +35,8 @@
         <activity
             android:name=".criminal_intent.CrimePagerActivity"
             android:label="@string/title_activity_crime_pager" >
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".criminal_intent.CrimeListActivity"/>
         </activity>
         <activity
             android:name=".hello_moon.HelloMoonActivity"
