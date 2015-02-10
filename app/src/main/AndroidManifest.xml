@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide" >
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -37,6 +40,10 @@
             android:label="@string/title_activity_crime_pager" >
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".criminal_intent.CrimeListActivity"/>
+        </activity>
+        <activity android:name=".criminal_intent.CrimeCameraActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name=".hello_moon.HelloMoonActivity"
