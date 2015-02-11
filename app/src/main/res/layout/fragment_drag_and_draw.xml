@@ -1,0 +1,3 @@
+<cn.edu.buaa.yaodh.android_the_big_nerd_ranch_guide.drag_and_draw.BoxDrawingView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />

@@ -8,6 +8,9 @@
         <item>GeoQuiz</item>
         <item>CriminalIntent</item>
         <item>HelloMoon</item>
+        <item>RemoteControl</item>
+        <item>PhotoGallery</item>
+        <item>DragAndDraw</item>
     </string-array>
 
     <string name="title_activity_quiz">Quiz</string>
@@ -24,7 +27,6 @@
     <string name="question_africa">The source of the Nile River is in Egygt.</string>
     <string name="question_americas">The amazon River is the longest river in the Americas.</string>
     <string name="question_asia">Lake Baikal is the world\'s oldest and deepest freshwater lake.</string>
-
     <string name="title_activity_cheat">Quiz</string>
     <string name="hello_world">Hello world!</string>
     <string name="warning_text">Are you sure you want to do this?</string>
@@ -48,5 +50,17 @@
     <string name="new_crime">New Crime</string>
     <string name="delete_crime">Delete Crime</string>
     <string name="take">Take</string>
+    <string name="crime_suspect_text">Choose Suspect</string>
+    <string name="crime_report_text">Send Crime Report</string>
+    <string name="crime_report">%1$s!
+      The crime was discovered on %2$s. %3$s, and %4$s</string>
+    <string name="crime_report_solved">The case is solved!</string>
+    <string name="crime_report_unsolved">The case is not solved</string>
+    <string name="crime_report_no_suspect">The case is not suspect</string>
+    <string name="crime_report_suspect">The suspect is %s.</string>
+    <string name="crime_report_subject">CriminalIntent Crime Report</string>
+    <string name="send_report">Send crime report via</string>
+    <string name="title_activity_photo_gallery">PhotoGallery</string>
+    <string name="title_activity_drag_and_draw">DragAndDrawActivity</string>
 
 </resources>
